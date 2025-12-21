@@ -1,4 +1,4 @@
-import { User, UserParam } from '@jaqua/shared/graphql';
+import { User, UserParam } from '@jaqua/shared-graphql';
 
 export interface UserReader {
   getUser(params: UserParam): Promise<User>;

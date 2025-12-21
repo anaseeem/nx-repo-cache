@@ -2,7 +2,7 @@
  * @requires NPM:@nestjs/common
  * @requires NPM:@nestjs/jwt
  * @requires NPM:bcryptjs
- * @requires local:@jaqua/shared/graphql
+ * @requires local:@jaqua/shared-graphql
  * @requires local:@jaqua/user
  * @requires local:../../core
  * @requires local:./ports/user-reader.port.ts
@@ -14,7 +14,7 @@
 import { Inject, Injectable, UnauthorizedException } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import bcrypt from 'bcryptjs';
-import { User } from '@jaqua/shared/graphql';
+import { User } from '@jaqua/shared-graphql';
 import { JwtUser, toUndef } from '../../../../src';
 import { USER_READER, type UserReader } from '../ports/user-reader.port.js';
 

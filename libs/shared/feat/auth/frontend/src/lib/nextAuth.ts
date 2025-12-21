@@ -16,7 +16,7 @@
  * @requires NPM:next-auth
  * @requires local:@jaqua/auth
  * @requires local:@jaqua/db
- * @requires local:@jaqua/shared/graphql
+ * @requires local:@jaqua/shared-graphql
  * @requires process.env['SECRET']
  *
  * @copyright © 2020-2025 by J. Quader
@@ -32,7 +32,7 @@ import { getServerSession } from 'next-auth/next';
 
 import { COOKIE_NAME, JWT_ALG, createLog, type JwtUser } from '../../../src';
 import { mongodb } from '@jaqua/db';
-import { User } from '@jaqua/shared/graphql';
+import { User } from '@jaqua/shared-graphql';
 
 const log = createLog('auth');
 

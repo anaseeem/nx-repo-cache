@@ -1,7 +1,7 @@
 /**
  * @requires NPM:@nestjs/common
  * @requires NPM:@nestjs/graphql
- * @requires local:@jaqua/shared/graphql
+ * @requires local:@jaqua/shared-graphql
  * @requires local:./auth.service.ts
  * @requires local:../../backend/
  *
@@ -19,7 +19,7 @@ import {
   Field,
 } from '@nestjs/graphql';
 
-import { User, UserData } from '@jaqua/shared/graphql';
+import { User, UserData } from '@jaqua/shared-graphql';
 import { CurrentUser } from '../decorators';
 import { GqlAuthGuard, GqlAuthGuardLocal } from '../guards';
 import { AuthService } from './auth.service';

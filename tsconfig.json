@@ -14,6 +14,9 @@
     },
     {
       "path": "./libs/shared/util/graphql"
+    },
+    {
+      "path": "./libs/shared/data-access/db"
     }
   ]
 }
