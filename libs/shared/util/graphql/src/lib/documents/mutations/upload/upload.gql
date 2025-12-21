@@ -1,0 +1,9 @@
+mutation uploadFiles($files: [Upload!]!, $bucketName: String) {
+  uploadFiles(files: $files, bucketName: $bucketName) {
+    id
+    thumbId
+    screenshotId
+    status
+    reason
+  }
+}

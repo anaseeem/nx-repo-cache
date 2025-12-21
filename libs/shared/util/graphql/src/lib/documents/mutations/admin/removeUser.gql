@@ -1,0 +1,3 @@
+mutation removeUser($input: RemoveUserInput!) {
+  removeUser(input: $input)
+}

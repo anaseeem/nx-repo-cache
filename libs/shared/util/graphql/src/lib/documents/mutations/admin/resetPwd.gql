@@ -1,0 +1,3 @@
+mutation resetPwd($input: ResetPwdInput!) {
+  resetPwd(input: $input)
+}

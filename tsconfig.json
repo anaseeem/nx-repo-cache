@@ -11,6 +11,9 @@
     },
     {
       "path": "./apps/cirs/api"
+    },
+    {
+      "path": "./libs/shared/util/graphql"
     }
   ]
 }

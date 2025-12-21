@@ -1,0 +1,8 @@
+query getUsers {
+  getUsers {
+    id
+    username
+    roles
+    group
+  }
+}

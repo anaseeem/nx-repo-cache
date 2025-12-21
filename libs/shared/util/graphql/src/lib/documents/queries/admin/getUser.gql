@@ -1,0 +1,9 @@
+query getUser($param: UserParam!) {
+  getUser(param: $param) {
+    id
+    username
+    roles
+    group
+    createdAt
+  }
+}

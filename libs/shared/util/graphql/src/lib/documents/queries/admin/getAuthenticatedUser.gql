@@ -1,0 +1,8 @@
+query getAuthenticatedUser {
+  getAuthenticatedUser {
+    id
+    username
+    roles
+    group
+  }
+}

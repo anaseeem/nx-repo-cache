@@ -1,0 +1,31 @@
+query getFiles {
+  getFiles {
+    _id
+    metadata {
+      isPublic
+      parent
+      fullId
+      smallId
+      thumbnailId
+      height
+      width
+      gallery {
+        id
+        smallId
+        thumbnailId
+        date
+        description
+        isPublic
+      }
+      name
+      birthday
+      discharge
+      date
+      link
+      isFinalized
+      isBilled
+      billYear
+      billNumber
+    }
+  }
+}

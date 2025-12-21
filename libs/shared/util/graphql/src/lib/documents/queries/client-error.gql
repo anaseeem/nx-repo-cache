@@ -1,0 +1,8 @@
+query GetClientError {
+  error @client {
+    statusCode
+    message
+    location
+    path
+  }
+}

@@ -1,0 +1,3 @@
+mutation assignUpload($input: AssignUploadInput!) {
+  assignUpload(input: $input)
+}
