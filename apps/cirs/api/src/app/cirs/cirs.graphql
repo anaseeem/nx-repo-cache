@@ -1,0 +1,65 @@
+type CirsDataset {
+  _id: ID!
+  dataId: Int
+  group: String!
+  location: String!
+  type: String!
+  reported: Date!
+  date: Date
+  description: String
+  instruction: String
+  injury: String
+  control: String
+  solution: String
+  speed: String
+  hardware: String
+  label: String
+  who: String
+  suggestion: String
+  comment: String
+  isFinished: Date
+  period: Date
+}
+
+type BarChart {
+  labels: [String]
+  data: [Int]
+}
+
+input GetBarChartDataParam {
+  type: String!
+}
+
+input AddCirsDatasetInput {
+  group: String!
+  location: String!
+  type: String!
+  date: Date
+  description: String
+  instruction: String
+  injury: String
+  control: String
+  solution: String
+  speed: String
+  hardware: String
+  label: String
+  who: String
+  suggestion: String
+}
+
+input UpdateCirsDatasetInput {
+  id: ID!
+  comment: String
+}
+
+type Query {
+  getCirsDatasets(period: String): [CirsDataset]
+  countPendingCirsDatasets: Int
+  getBarChartData(param: GetBarChartDataParam!): BarChart
+}
+
+type Mutation {
+  addCirsDataset(input: AddCirsDatasetInput!): ID
+  updateCirsDataset(input: UpdateCirsDatasetInput!): ID
+  finishCirsDataset(id: ID!): Date
+}

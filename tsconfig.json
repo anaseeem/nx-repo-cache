@@ -5,6 +5,12 @@
   "references": [
     {
       "path": "./libs/shared/feat/auth"
+    },
+    {
+      "path": "./apps/cirs/api-e2e"
+    },
+    {
+      "path": "./apps/cirs/api"
     }
   ]
 }

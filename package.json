@@ -6,7 +6,8 @@
   "workspaces": [
     "apps/*",
     "libs/shared/feat/auth/*",
-    "libs/shared/feat/*"
+    "libs/shared/feat/*",
+    "apps/cirs/*"
   ],
   "scripts": {},
   "dependencies": {

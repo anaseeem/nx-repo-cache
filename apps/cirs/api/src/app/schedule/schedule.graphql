@@ -1,0 +1,46 @@
+type SuggestedDates {
+  _id: ID!
+  period: Date
+  count: Int
+  aufnahme: [Date]
+  k10: [Date]
+  k11: [Date]
+  k12: [Date]
+  oa: [Date]
+  briefing: Date
+  presentation: Date
+}
+enum Group {
+  aufnahme
+  k10
+  k11
+  k12
+  oa
+}
+
+input AddSuggestedDateInput {
+  period: Date!
+  ward: String!
+  date: Date!
+}
+
+input GetSuggestedDatesParam {
+  period: String
+}
+
+input SaveDateInput {
+  period: Date!
+  type: String!
+  date: Date!
+}
+
+type Query {
+  getSchedulesPeriods: [Date]
+  getSuggestedDates(param: GetSuggestedDatesParam!): SuggestedDates
+}
+
+type Mutation {
+  createCurrentSchedule: ID
+  addSuggestedDate(input: AddSuggestedDateInput!): Boolean
+  saveDate(input: SaveDateInput!): Boolean
+}
