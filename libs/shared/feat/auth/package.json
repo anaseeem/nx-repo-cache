@@ -13,6 +13,24 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
       "default": "./dist/index.js"
+    },
+    "./frontend": {
+      "@soure-dup/source": "./frontend/src/index.ts",
+      "types": "./dist/frontend/index.d.ts",
+      "import": "./dist/frontend/index.js",
+      "default": "./dist/frontend/index.js"
+    },
+    "./frontend/server": {
+      "@soure-dup/source": "./frontend/server/src/index.ts",
+      "types": "./dist/frontend/server/index.d.ts",
+      "import": "./dist/frontend/server/index.js",
+      "default": "./dist/frontend/server/index.js"
+    },
+    "./backend": {
+      "@soure-dup/source": "./backend/src/index.ts",
+      "types": "./dist/backend/index.d.ts",
+      "import": "./dist/backend/index.js",
+      "default": "./dist/backend/index.js"
     }
   },
   "dependencies": {

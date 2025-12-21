@@ -9,13 +9,25 @@
     "build": {
       "executor": "@nx/js:tsc",
       "options": {
+        "cwd": "{projectRoot}",
+        "tsConfig": "{projectRoot}/tsconfig.lib.json",
+        "outputPath": "{projectRoot}/dist",
+        "main": "{projectRoot}/src/index.ts",
         "additionalEntryPoints": [
-          "{projectRoot}/frontend/index.ts",
-          "{projectRoot}/frontend/server.ts",
-          "{projectRoot}/backend/index.ts"
+          "{projectRoot}/frontend/src/index.ts",
+          "{projectRoot}/frontend/src/server.ts",
+          "{projectRoot}/backend/src/index.ts"
         ],
-        "generateExportsField": true
-      }
+        "generateExportsField": true,
+        "assets": [
+          "{projectRoot}/*.md",
+          "{projectRoot}/src/**/!(*.ts)",
+          "{projectRoot}/frontend/src/**/!(*.ts)",
+          "{projectRoot}/backend/src/**/!(*.ts)"
+        ],
+        "clean": true
+      },
+      "outputs": ["{options.outputPath}"]
     }
   }
 }

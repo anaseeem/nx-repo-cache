@@ -23,23 +23,18 @@
  * @author A. Naseem
  * @author Dr. J. Quader
  */
-import bcrypt from 'bcryptjs'
-import * as jwt from 'jsonwebtoken'
-import CredentialsProvider from 'next-auth/providers/credentials'
-import { NextAuthOptions, type Session } from 'next-auth'
-import type { JWT, JWTEncodeParams, JWTDecodeParams } from 'next-auth/jwt'
-import { getServerSession } from 'next-auth/next'
+import bcrypt from 'bcryptjs';
+import * as jwt from 'jsonwebtoken';
+import CredentialsProvider from 'next-auth/providers/credentials';
+import { NextAuthOptions, type Session } from 'next-auth';
+import type { JWT, JWTEncodeParams, JWTDecodeParams } from 'next-auth/jwt';
+import { getServerSession } from 'next-auth/next';
 
-import {
-  COOKIE_NAME,
-  JWT_ALG,
-  createLog,
-  type JwtUser
-} from '../../../core/src'
-import { mongodb } from '@jaqua/db'
-import { User } from '@jaqua/shared/graphql'
+import { COOKIE_NAME, JWT_ALG, createLog, type JwtUser } from '../../../src';
+import { mongodb } from '@jaqua/db';
+import { User } from '@jaqua/shared/graphql';
 
-const log = createLog('auth')
+const log = createLog('auth');
 
 /**
  * Authorize a user via username/password.
@@ -54,39 +49,39 @@ const log = createLog('auth')
  * @throws Error when DB connection fails or input is missing.
  */
 export const authorize = async (
-  creds?: Record<'username' | 'password', string> | undefined
+  creds?: Record<'username' | 'password', string> | undefined,
 ): Promise<any> => {
-  log('authorize:start', { u: creds?.username })
-  if (!creds) throw new Error('Missing credentials')
+  log('authorize:start', { u: creds?.username });
+  if (!creds) throw new Error('Missing credentials');
 
   try {
-    const db = await mongodb()
-    if (!db) throw Error('DB connection failed')
-    const Users = db.collection<User>('users')
+    const db = await mongodb();
+    if (!db) throw Error('DB connection failed');
+    const Users = db.collection<User>('users');
 
-    const userData = await Users.findOne({ username: creds.username })
+    const userData = await Users.findOne({ username: creds.username });
     log(
       'authorize:userFromDb',
       userData
         ? {
             id: userData.id ?? (userData as any)._id,
             roles: userData.roles,
-            hasPw: !!userData.password
+            hasPw: !!userData.password,
           }
-        : null
-    )
+        : null,
+    );
 
-    if (!userData?.password) return null
-    const isValid = validatePassword(creds.password, userData.password)
-    log('authorize:passwordValid', isValid)
+    if (!userData?.password) return null;
+    const isValid = validatePassword(creds.password, userData.password);
+    log('authorize:passwordValid', isValid);
 
-    if (!isValid) return null
-    const { password: _pw, ...user } = userData
-    return user
+    if (!isValid) return null;
+    const { password: _pw, ...user } = userData;
+    return user;
   } catch (error) {
-    console.error('[auth] validateUser:error', error)
+    console.error('[auth] validateUser:error', error);
   }
-}
+};
 
 /**
  * Compare a plaintext password with a bcrypt hash.
@@ -96,9 +91,9 @@ export const authorize = async (
  * @returns `true` when the password matches, else `false`.
  */
 export const validatePassword = (input: string, db: string): boolean => {
-  if (!(db && input)) return false
-  return bcrypt.compareSync(input, db)
-}
+  if (!(db && input)) return false;
+  return bcrypt.compareSync(input, db);
+};
 
 /**
  * NextAuth JWT callback.
@@ -112,19 +107,19 @@ export const validatePassword = (input: string, db: string): boolean => {
  */
 export async function jwtCallback({
   token,
-  user
+  user,
 }: {
-  token: JWT
-  user?: any | null
+  token: JWT;
+  user?: any | null;
 }): Promise<JWT> {
   if (user) {
-    token['id'] = user.id
-    token['username'] = user.username
-    token['roles'] = user.roles
-    token['professionalGroup'] = user.professionalGroup as string | undefined
+    token['id'] = user.id;
+    token['username'] = user.username;
+    token['roles'] = user.roles;
+    token['professionalGroup'] = user.professionalGroup as string | undefined;
   }
-  log('jwt:callback', { username: token['username'] })
-  return token
+  log('jwt:callback', { username: token['username'] });
+  return token;
 }
 
 /**
@@ -138,21 +133,21 @@ export async function jwtCallback({
  */
 export async function session({
   session,
-  token
+  token,
 }: {
-  session: Session
-  token: JWT
+  session: Session;
+  token: JWT;
 }): Promise<Session> {
-  const t = token as JwtUser
+  const t = token as JwtUser;
   session.user = {
     ...session.user,
     id: t.id ?? t.sub,
     username: t.username,
     roles: t.roles,
-    professionalGroup: t.professionalGroup
-  } as Session['user']
-  log('session:result', session)
-  return session
+    professionalGroup: t.professionalGroup,
+  } as Session['user'];
+  log('session:result', session);
+  return session;
 }
 
 /**
@@ -167,14 +162,14 @@ export async function session({
  */
 export const encode = async ({
   secret,
-  token
+  token,
 }: JWTEncodeParams): Promise<string> => {
-  log('jwt.encode:input', token)
-  if (!token) return ''
-  const signed = jwt.sign(token, secret, { algorithm: JWT_ALG })
-  log('jwt.encode:signedLength', signed?.length)
-  return signed
-}
+  log('jwt.encode:input', token);
+  if (!token) return '';
+  const signed = jwt.sign(token, secret, { algorithm: JWT_ALG });
+  log('jwt.encode:signedLength', signed?.length);
+  return signed;
+};
 
 /**
  * NextAuth JWT decoder.
@@ -188,13 +183,13 @@ export const encode = async ({
  */
 export const decode = async ({
   secret,
-  token
+  token,
 }: JWTDecodeParams): Promise<JWT | null> => {
-  if (!token) return null
-  const decoded = jwt.verify(token, secret) as JWT
-  log('jwt.decode:output', decoded)
-  return decoded
-}
+  if (!token) return null;
+  const decoded = jwt.verify(token, secret) as JWT;
+  log('jwt.decode:output', decoded);
+  return decoded;
+};
 
 /**
  * Get the current authenticated user from a server context.
@@ -202,9 +197,9 @@ export const decode = async ({
  * @returns The user object from the active session or `undefined` when not authenticated.
  */
 export async function getCurrentUser() {
-  const session = await getServerSession(authOptions)
-  log('getCurrentUser:session', session)
-  return session?.user
+  const session = await getServerSession(authOptions);
+  log('getCurrentUser:session', session);
+  return session?.user;
 }
 
 /**
@@ -217,14 +212,14 @@ export const credentials = {
     label: 'Benutzername',
     type: 'text',
     placeholder: 'Benutzername',
-    value: ''
+    value: '',
   },
   password: {
     label: 'Passwort',
     type: 'password',
-    placeholder: 'Passwort'
-  }
-}
+    placeholder: 'Passwort',
+  },
+};
 
 /**
  * NextAuth configuration.
@@ -240,8 +235,8 @@ export const authOptions: NextAuthOptions = {
     CredentialsProvider({
       name: 'Credentials',
       credentials,
-      authorize
-    })
+      authorize,
+    }),
   ],
   callbacks: { jwt: jwtCallback, session },
   session: { strategy: 'jwt', maxAge: 24 * 60 * 60 },
@@ -261,8 +256,8 @@ export const authOptions: NextAuthOptions = {
         domain:
           process.env.NODE_ENV === 'production' && process.env['COOKIE_DOMAIN']
             ? (process.env['ISLOCAL'] ? '' : '.') + process.env['COOKIE_DOMAIN']
-            : 'localhost'
-      }
-    }
-  }
-}
+            : 'localhost',
+      },
+    },
+  },
+};
