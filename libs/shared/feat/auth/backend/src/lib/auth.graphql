@@ -1,0 +1,22 @@
+input LoginUserInput {
+  username: String!
+  password: String!
+}
+
+type AccessToken {
+  access_token: String!
+}
+
+input ValidateUserInput {
+  username: String!
+  password: String!
+}
+
+type Query {
+  getAuthenticatedUser: UserData
+}
+
+type Mutation {
+  login(input: LoginUserInput!): AccessToken
+  validateUser(input: ValidateUserInput!): User
+}

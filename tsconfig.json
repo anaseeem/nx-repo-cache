@@ -4,10 +4,7 @@
   "files": [],
   "references": [
     {
-      "path": "./apps/your-app-name-e2e"
-    },
-    {
-      "path": "./apps/your-app-name"
+      "path": "./libs/shared/feat/auth"
     }
   ]
 }

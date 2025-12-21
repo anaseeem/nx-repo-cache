@@ -1,0 +1,21 @@
+{
+  "name": "authentication",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/shared/feat/auth/src",
+  "projectType": "library",
+  "tags": ["scope:shared", "type:feature"],
+  "// targets": "to see all targets run: nx show project authentication --web",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "options": {
+        "additionalEntryPoints": [
+          "{projectRoot}/frontend/index.ts",
+          "{projectRoot}/frontend/server.ts",
+          "{projectRoot}/backend/index.ts"
+        ],
+        "generateExportsField": true
+      }
+    }
+  }
+}
