@@ -1,18 +1,15 @@
 {
-  "extends": "../../../../tsconfig.base.json",
   "compilerOptions": {
     "baseUrl": ".",
-    "rootDirs": ["src", "frontend", "backend"],
-    "outDir": "dist",
-    "tsBuildInfoFile": "dist/tsconfig.lib.tsbuildinfo",
     "emitDeclarationOnly": false,
+    "forceConsistentCasingInFileNames": true,
     "module": "nodenext",
     "moduleResolution": "nodenext",
-    "forceConsistentCasingInFileNames": true,
+    "outDir": "dist",
+    "rootDirs": ["src", "frontend", "backend"],
+    "tsBuildInfoFile": "dist/tsconfig.lib.tsbuildinfo",
     "types": ["node"]
   },
-  "include": ["src/**/*.ts", "frontend/src/**/*.ts", "backend/src/**/*.ts"],
-  "references": [],
   "exclude": [
     "jest.config.ts",
     "src/**/*.spec.ts",
@@ -21,5 +18,8 @@
     "frontend/src/**/*.test.ts",
     "backend/src/**/*.spec.ts",
     "backend/src/**/*.test.ts"
-  ]
+  ],
+  "extends": "../../../../tsconfig.base.json",
+  "include": ["src/**/*.ts", "frontend/src/**/*.ts", "backend/src/**/*.ts"],
+  "references": []
 }

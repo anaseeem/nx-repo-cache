@@ -9,7 +9,8 @@
     "libs/shared/feat/*",
     "apps/cirs/*",
     "libs/shared/util/*",
-    "libs/shared/data-access/*"
+    "libs/shared/data-access/*",
+    "libs/shared/*"
   ],
   "scripts": {},
   "dependencies": {

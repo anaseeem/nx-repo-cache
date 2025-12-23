@@ -17,6 +17,18 @@
     },
     {
       "path": "./libs/shared/data-access/db"
+    },
+    {
+      "path": "./libs/shared/util/e2e"
+    },
+    {
+      "path": "./apps/cirs/analysis-e2e"
+    },
+    {
+      "path": "./apps/cirs/analysis"
+    },
+    {
+      "path": "./libs/shared/nasim-org"
     }
   ]
 }
