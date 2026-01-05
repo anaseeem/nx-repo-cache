@@ -21,5 +21,12 @@
   ],
   "extends": "../../../../tsconfig.base.json",
   "include": ["src/**/*.ts", "frontend/src/**/*.ts", "backend/src/**/*.ts"],
-  "references": []
+  "references": [
+    {
+      "path": "../../data-access/db/tsconfig.lib.json"
+    },
+    {
+      "path": "../../util/graphql/tsconfig.lib.json"
+    }
+  ]
 }

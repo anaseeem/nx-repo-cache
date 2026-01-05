@@ -15,5 +15,6 @@
     "src/**/*.test.js",
     "src/**/*.d.ts"
   ],
-  "exclude": ["out-tsc", "test-output"]
+  "exclude": ["out-tsc", "test-output"],
+  "references": []
 }

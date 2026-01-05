@@ -26,5 +26,13 @@
     "eslint.config.js",
     "eslint.config.cjs",
     "eslint.config.mjs"
+  ],
+  "references": [
+    {
+      "path": "../../../libs/shared/data-access/db/tsconfig.lib.json"
+    },
+    {
+      "path": "../../../libs/shared/feat/auth/tsconfig.lib.json"
+    }
   ]
 }

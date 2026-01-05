@@ -1,2 +1,1 @@
-export { buildPlaywrightConfig } from './lib/config.js';
-export type { PlaywrightConfigOptions } from './lib/config.js';
+export * from './lib/shared-util-e2e.js';

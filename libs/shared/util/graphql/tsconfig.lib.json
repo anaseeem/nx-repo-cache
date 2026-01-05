@@ -3,8 +3,10 @@
   "compilerOptions": {
     "baseUrl": ".",
     "rootDir": "src",
-    "outDir": "dist",
-    "tsBuildInfoFile": "dist/tsconfig.lib.tsbuildinfo",
+    "outDir": "../../../../dist/libs/shared/util/graphql",
+
+    "tsBuildInfoFile": "../../../../dist/libs/shared/util/graphql/tsconfig.lib.tsbuildinfo",
+
     "emitDeclarationOnly": false,
     "module": "nodenext",
     "moduleResolution": "nodenext",

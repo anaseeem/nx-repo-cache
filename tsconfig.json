@@ -19,9 +19,6 @@
       "path": "./libs/shared/data-access/db"
     },
     {
-      "path": "./libs/shared/util/e2e"
-    },
-    {
       "path": "./apps/cirs/analysis-e2e"
     },
     {
@@ -29,6 +26,18 @@
     },
     {
       "path": "./libs/shared/nasim-org"
+    },
+    {
+      "path": "./libs/shared/util/mega"
+    },
+    {
+      "path": "./libs/shared/util/e2e"
+    },
+    {
+      "path": "./libs/shared/util/a2a"
+    },
+    {
+      "path": "./libs/shared/feat/admin"
     }
   ]
 }

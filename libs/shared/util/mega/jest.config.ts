@@ -10,7 +10,7 @@ const swcJestConfig = JSON.parse(
 swcJestConfig.swcrc = false;
 
 export default {
-  displayName: 'shared-util-e2e',
+  displayName: 'shared-util-mega',
   preset: '../../../../jest.preset.js',
   testEnvironment: 'node',
   transform: {

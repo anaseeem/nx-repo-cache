@@ -1,0 +1,15 @@
+{
+  "extends": "../../../../tsconfig.base.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "../../../../dist/libs/shared/util/a2a",
+    "tsBuildInfoFile": "../../../../dist/libs/shared/util/a2a/tsconfig.lib.tsbuildinfo",
+    "emitDeclarationOnly": false,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "forceConsistentCasingInFileNames": true,
+    "types": ["node"]
+  },
+  "include": ["src/**/*.ts"],
+  "references": []
+}

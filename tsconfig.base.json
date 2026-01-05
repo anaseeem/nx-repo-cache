@@ -1,8 +1,9 @@
 {
   "compilerOptions": {
     "composite": true,
-    "customConditions": ["@soure-dup/source"],
+    // "customConditions": ["@soure-dup/source"],
     "declarationMap": true,
+    "declaration": true,
     "emitDeclarationOnly": true,
     "importHelpers": true,
     "isolatedModules": true,
