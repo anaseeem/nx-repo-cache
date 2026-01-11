@@ -24,9 +24,6 @@
   "references": [
     {
       "path": "../../data-access/db/tsconfig.lib.json"
-    },
-    {
-      "path": "../../util/graphql/tsconfig.lib.json"
     }
   ]
 }

@@ -68,3 +68,21 @@ test-output
 out
 vite.config.*.timestamp*
 vitest.config.*.timestamp*
+
+# Custom
+# Build artifacts
+/dist
+/.next
+/out-tsc
+/tmp
+
+# If you want to ensure nested dist/next folders are also ignored:
+**/dist
+**/.next
+**/out-tsc
+**/tmp
+
+# Debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

@@ -38,6 +38,15 @@
     },
     {
       "path": "./libs/shared/feat/admin"
+    },
+    {
+      "path": "./apps/docs/app"
+    },
+    {
+      "path": "./apps/kinderheilkun.de/emergency-e2e"
+    },
+    {
+      "path": "./apps/kinderheilkun.de/emergency"
     }
   ]
 }

@@ -1,0 +1,35 @@
+{
+  "name": "kinderheilkun.de-emergency",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/kinderheilkun.de/emergency",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/next:build",
+      "inputs": [
+        "default",
+        "^production",
+        {
+          "externalDependencies": ["next"]
+        }
+      ],
+      "outputs": [
+        "{options.outputPath}/.next/!(cache)/**/*",
+        "{options.outputPath}/.next/!(cache)"
+      ],
+      "dependsOn": ["^build"],
+      "syncGenerators": ["@nx/js:typescript-sync"],
+      "options": {
+        "nextConfig": "{projectRoot}/next.config.js",
+        "tty": false,
+        "outputPath": "{workspaceRoot}/dist/{projectRoot}"
+      },
+      "configurations": {
+        "production": {
+          "debug": false
+        }
+      }
+    }
+  }
+}

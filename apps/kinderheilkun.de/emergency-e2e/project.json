@@ -1,0 +1,10 @@
+{
+  "name": "kinderheilkun.de-emergency-e2e",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/kinderheilkun.de/emergency-e2e/src",
+  "tags": [],
+  "implicitDependencies": ["kinderheilkun.de-emergency"],
+  "// targets": "to see all targets run: nx show project kinderheilkun.de-emergency-e2e --web",
+  "targets": {}
+}

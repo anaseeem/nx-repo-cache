@@ -7,9 +7,6 @@
       "path": "../../data-access/db"
     },
     {
-      "path": "../../util/graphql"
-    },
-    {
       "path": "./tsconfig.lib.json"
     },
     {
